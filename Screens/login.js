@@ -1,48 +1,15 @@
-import { useState,useEffect,useCallback } from "react";
+
 import { SafeArea } from "../utils/safearea";
 import { View,Text,StyleSheet,ScrollView, TouchableOpacity } from "react-native";
-import { Theme } from '../utils/theme';
-import * as SplashScreen from 'expo-splash-screen';
-import * as Font from 'expo-font';
-import { Righteous_400Regular } from "@expo-google-fonts/righteous";
+import { Theme } from '../utils/Theme';
 import { Button, TextInput } from "react-native-paper";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-export function Signup(navigation ) {
-    const [appIsReady, setAppIsReady] = useState(false);
-
-    useEffect(() => {
-        async function prepare() {
-            try {
-                await Font.loadAsync({Righteous_400Regular});
-                await new Promise(resolve => setTimeout(resolve, 2000));
-            } catch (e) {
-                console.warn(e);
-            } finally {
-                setAppIsReady(true);
-            }
-        }
-
-        prepare();
-    }, []);
-
-    const onLayoutRootView = useCallback(async () => {
-        if (appIsReady) {
-        await SplashScreen.hideAsync();
-        }
-    }, [appIsReady]);
-
-    if (!appIsReady) {
-        return null;
-    }
-
+export function Signup (){}
     return (
         <SafeArea>
             <ScrollView>
                 <Text style={styles.brand}>Thrift</Text>
-                <Text style={styles.intro}>Create an account to join
-                Thrift cooperative society and enjoy tons of benefits</Text>
+                <Text style={styles.intro}>Please sign in to continue</Text>
 
                 <View style={styles.alreadyHaveAccount}>
                     <Text style={styles.infoTitle}>Already have an account?</Text>
@@ -54,27 +21,12 @@ export function Signup(navigation ) {
                 </View>
 
                 <View style={styles.form}>
-                    <TextInput 
-                    placeholder="Last name"
+                    <TextInput                                 
+                    placeholder="Name"
                     mode="outlined"
                     outlineColor={Theme.colors.purple300}
                     activeOutlineColor={Theme.colors.purple500}
                     style={{fontSize:24,color:'#3C4048',marginBottom:Theme.sizes[1]}}/>
-                    
-                    <TextInput 
-                    placeholder="First name"
-                    mode="outlined"
-                    outlineColor={Theme.colors.purple300}
-                    activeOutlineColor={Theme.colors.purple500}
-                    style={{fontSize:24,color:'#3C4048',marginBottom:Theme.sizes[1]}}/>
-                    
-                    <TextInput 
-                    placeholder="Phone number"
-                    mode="outlined"
-                    outlineColor={Theme.colors.purple300}
-                    activeOutlineColor={Theme.colors.purple500}
-                    style={{fontSize:24,color:'#3C4048',marginBottom:Theme.sizes[1]}}
-                    keyboardType='phone-pad'/>
                     
                     <TextInput 
                     placeholder="email address"
@@ -85,19 +37,11 @@ export function Signup(navigation ) {
                     keyboardType='email-address'/>
                  
                     <TextInput 
-                    placeholder="create password"
+                    placeholder="Input password"
                     mode="outlined"
                     outlineColor={Theme.colors.purple300}
                     activeOutlineColor={Theme.colors.purple500}
                     style={{fontSize:24,color:'#3C4048',marginBottom:Theme.sizes[1]}}
-                    secureTextEntry={true}/>
-
-                    <TextInput 
-                    placeholder="confirm password"
-                    mode="outlined"
-                    outlineColor={Theme.colors.purple300}
-                    activeOutlineColor={Theme.colors.purple500}
-                    style={{fontSize:24,color:'#3C4048',marginBottom:Theme.sizes[3]}}
                     secureTextEntry={true}/>
 
                     <Button
@@ -108,7 +52,6 @@ export function Signup(navigation ) {
             </ScrollView>
         </SafeArea>
     )
-}
 
 const styles = StyleSheet.create({
     brand:{

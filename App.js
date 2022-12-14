@@ -1,10 +1,11 @@
-import { Signup } from "./Screens/signup";
+import { StackNavigator } from './Screens/stack';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
-  return (
-   <>
-   <Signup />
-  </>
+  return ( 
+    <NavigationContainer>
+      <StackNavigation/>
+    </NavigationContainer>
   );
 }
 
