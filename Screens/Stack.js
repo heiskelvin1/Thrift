@@ -13,7 +13,6 @@ import { signin } from './signin'
     return (
         <Stack.Navigator initialRouteName='Sign up' screeOptions={{headerShown:false}} >
             <Stack.screen name= 'About' component={About}/>
-            <Stack.screen name= 'Deposit' component={Deposit}/>
             <Stack.screen name= 'Withdraw' component={Withdraw}/>
             <Stack.screen name= 'Profile' component={Profile}/>
             <Stack.screen name= 'Loan' component={Loan}/>
